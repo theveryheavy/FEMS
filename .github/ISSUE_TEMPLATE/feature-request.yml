@@ -1,0 +1,34 @@
+name: Feature request
+description: Suggest an improvement or new capability for FEMS.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: proposed-feature
+    attributes:
+      label: Proposed feature
+      description: Describe the feature you would like to see.
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem it solves
+      description: What user need or problem would this address?
+    validations:
+      required: true
+  - type: textarea
+    id: suggested-implementation
+    attributes:
+      label: Suggested implementation
+      description: If you have an approach in mind, describe it. Alternatives are welcome.
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Add examples, mockups, or related links if helpful.
+    validations:
+      required: false

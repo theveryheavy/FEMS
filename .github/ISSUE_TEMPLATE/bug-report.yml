@@ -1,0 +1,61 @@
+name: Bug report
+description: Report a reproducible problem with FEMS or this repository.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting, search for an existing report. Do not include passwords, tokens, or private user data.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps that reproduce the problem.
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: fems-version
+    attributes:
+      label: FEMS version
+      description: Include the release version or commit, if applicable. Write "Not released" if this is not applicable.
+      placeholder: Not released
+    validations:
+      required: true
+  - type: input
+    id: operating-system
+    attributes:
+      label: Operating system
+      placeholder: e.g. Windows 11, Ubuntu 24.04, macOS 15
+    validations:
+      required: true
+  - type: textarea
+    id: logs-screenshots
+    attributes:
+      label: Logs or screenshots
+      description: Include relevant output or attach screenshots. Redact secrets and personal information.
+    validations:
+      required: false
