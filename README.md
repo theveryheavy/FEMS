@@ -4,48 +4,36 @@
 [![Latest release](https://img.shields.io/github/v/release/theveryheavy/FEMS?display_name=tag)](https://github.com/theveryheavy/FEMS/releases)
 [![Contributors](https://img.shields.io/github/contributors/theveryheavy/FEMS)](https://github.com/theveryheavy/FEMS/graphs/contributors)
 
-FEMS is an unofficial, community-made modding suite for **False Echo**, intended to help players create, manage, discover, and share mods.
+FEMS is a community modding suite for **False Echo**. The goal is to give players and mod authors a place to make, share, and find mods.
 
-## Project status
+## Status
 
-The application is not currently published in this repository. The intended user distribution is **Windows-only**: the Python application will be built into executable files, so users will not need to install Python. Required dependencies will be downloaded automatically or bundled by FEMS; users will not need to set them up manually. No application release or downloadable executable is available yet.
+FEMS is not ready to download yet. The plan is to make it a Windows application distributed as `.exe` files. Users shouldn't have to install Python or set up dependencies themselves; FEMS will handle what it needs. There is no installer or executable available today.
 
-The project is being prepared for source publication at a later time. The current repository does not contain the toolkit source code.
+The application source isn't in this repository right now. This repository contains project information and the community mod-listing process.
 
-## Goals
+## Get started
 
-- Make it easier for players and independent developers to create and use mods.
-- Provide clear compatibility, dependency, and license information for each mod.
-- Review community mod additions through pull requests to the [`mods/`](mods/README.md) directory.
-- Keep each mod's ownership and licensing independent from FEMS.
+There is nothing to install yet. When a Windows build is ready, it will be announced on [Releases](https://github.com/theveryheavy/FEMS/releases).
 
-These are project goals, not a claim that the application or catalog is already available.
+## Submit a mod
 
-## Installation and getting started
+Mods are added to the repository through pull requests to [`mods/`](mods/README.md). Read the guide there before opening a PR. Issues are for questions and reports, not mod submissions.
 
-There is no installer or executable to download yet. When a Windows build is available, this section will link to its installation instructions. Check [GitHub Releases](https://github.com/theveryheavy/FEMS/releases) for an intentional future release.
+Each mod author keeps ownership of their work and chooses its license. A listing doesn't mean FEMS hosts, checks, or endorses the mod.
 
-## Documentation
+## Project information
 
-- [Project and user documentation](docs/README.md)
-- [Mod catalog and pull request guide](mods/README.md)
+- [Project documentation](docs/README.md)
+- [Mod listing guide](mods/README.md)
 - [Contributing](CONTRIBUTING.md)
-- [Changelog and release policy](CHANGELOG.md)
+- [Changelog](CHANGELOG.md)
 - [Support](SUPPORT.md)
-- [Security policy](SECURITY.md)
+- [Security](SECURITY.md)
+- [AI assistance](AI-ASSISTANCE.md)
 
-## Submitting a mod
+## License
 
-Submit new mods and mod updates as a pull request that adds or updates a directory under [`mods/`](mods/). Follow the required metadata and review checklist in the [mod contribution guide](mods/README.md). Issues are for questions or reporting a problem with an existing listing; they do not publish mods.
+The FEMS project is licensed under the [MIT License](LICENSE), with copyright attributed to The Heavy. This does not change the license of any community mod or third-party material. Only submit material you have the right to share. See [third-party notices](THIRD-PARTY-NOTICES.md) and [contribution guidance](CONTRIBUTING.md#licensing).
 
-The catalog is community reviewed. A pull request does not guarantee acceptance, and the repository does not currently host or distribute mod downloads. Each mod author retains ownership and chooses the mod's license.
-
-## Releases
-
-FEMS will use Semantic Versioning (`MAJOR.MINOR.PATCH`) for intentional application releases. No release has been published. See [CHANGELOG.md](CHANGELOG.md) for the release policy; nothing is published automatically.
-
-## License and credits
-
-The FEMS project is licensed under the [MIT License](LICENSE), with copyright attributed to The Heavy. This license does not automatically apply to community mods, third-party dependencies, or third-party assets. Contributors must have the right to submit content. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) and [CONTRIBUTING.md](CONTRIBUTING.md#licensing-and-contributions).
-
-False Echo and its game content remain the property of their respective owners. FEMS is not an official product of the game developer.
+FEMS is an unofficial community project. False Echo and its game content belong to their respective owners.

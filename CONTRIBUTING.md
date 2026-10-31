@@ -1,43 +1,26 @@
-# Contributing to FEMS
+# Contributing
 
-Thank you for considering a contribution. FEMS welcomes documentation improvements, thoughtful proposals, and community mod submissions from people with all levels of experience. The application source code is not currently included in this repository.
+Thanks for helping with FEMS. The application source isn't in this repository yet, but you can contribute documentation, suggest improvements, and submit mod listings.
 
-## Before you start
+## Before you contribute
 
-- Read and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
-- Search [existing issues](https://github.com/theveryheavy/FEMS/issues) before opening a duplicate.
-- For broad proposals, open an issue first so the community can discuss the direction before implementation.
-- Keep contributions focused and follow the existing Markdown conventions.
-- Do not add False Echo executables, game data, extracted game content/assets, local save files, user-specific install state, or unrelated binaries.
+- Read the [Code of Conduct](CODE_OF_CONDUCT.md).
+- Search the [existing issues](https://github.com/theveryheavy/FEMS/issues) before opening a new one.
+- For a large change, open an issue first to discuss it.
+- Don't commit game files, extracted content, local save files, or material you don't have permission to share.
 
-## Submit or update a mod
+## Mod listings
 
-Mods are published in this repository through pull requests, not by opening a mod submission issue:
+Submit a mod by opening a pull request under `mods/<unique-mod-id>/`. Include `mod.json` and a `README.md`, and follow the [mod listing guide](mods/README.md). To update a listing, edit its existing folder. Issues are for questions or reports, not submissions.
 
-1. Create a directory under `mods/` named with the mod's stable, unique ID.
-2. Add the required `mod.json` metadata and a `README.md`; include only content you have the right to contribute.
-3. Open a pull request against `main`. For updates, edit the existing mod directory rather than creating a duplicate.
-4. Describe compatibility, license, dependencies, source/download links, and any relevant changes in the pull request.
-5. Address maintainer review. A merged entry is a catalog listing; it does not mean FEMS hosts, verifies, or redistributes the mod.
+## Bugs and ideas
 
-See [mods/README.md](mods/README.md) for exact metadata and review expectations. Use the mod issue form only for questions, broken listings, or safety reports.
-
-## Report bugs and propose features
-
-Use the [Bug Report](https://github.com/theveryheavy/FEMS/issues/new?template=bug-report.yml) form for reproducible defects and the [Feature Request](https://github.com/theveryheavy/FEMS/issues/new?template=feature-request.yml) form for proposals. Include enough context to understand the problem, environment, and expected outcome. Do not put credentials, private user data, or undisclosed security vulnerabilities in public issues.
+Use the [bug report form](https://github.com/theveryheavy/FEMS/issues/new?template=bug-report.yml) for problems and the [feature request form](https://github.com/theveryheavy/FEMS/issues/new?template=feature-request.yml) for ideas. Please include enough detail for someone else to understand what happened or what you'd like to see. Don't post credentials, private data, or security vulnerabilities in public.
 
 ## Pull requests
 
-1. Fork the repository and create a branch for your change.
-2. Make a focused change and update relevant documentation.
-3. Run relevant checks. If a check cannot be run, say so in the pull request rather than claiming it passed.
-4. Open a pull request against `main` and complete the pull request template.
-5. Respond to review feedback and keep the change easy to review.
+Keep changes focused, explain what you changed, and update any related documentation. Run relevant checks if there are any; if you couldn't run them, say so in the PR. Mod listings are reviewed for accurate metadata, links, compatibility, licensing, and permission to share submitted material.
 
-Maintainers may request changes, additional tests, or revisions to keep the project maintainable. A pull request is not accepted until reviewed and merged by a maintainer.
+## Licensing
 
-## Licensing and contributions
-
-The FEMS project is licensed under MIT. By submitting a project contribution, you confirm that you have the right to contribute it and that you are not knowingly submitting content that violates another person's rights.
-
-Mods submitted under `mods/` keep their own licenses; do not apply the FEMS MIT license to them. Third-party dependencies and assets also retain their own licenses and attribution terms. Identify owners and licenses, preserve required notices, and obtain permission where needed. Do not submit another person's work as your own.
+The FEMS project uses the MIT License. Mod listings keep the license chosen by their authors; the FEMS license does not apply to them. Third-party code and assets also keep their original licenses. By contributing, you confirm that you have the right to share what you submit.

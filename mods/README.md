@@ -1,28 +1,30 @@
-# Community mod catalog
+# Community mods
 
-Community mods are added and updated through pull requests to this directory. There is no live FEMS catalog or download service yet; a merged entry is a reviewed repository listing, not a hosted mod or an application feature.
+To add or update a mod, open a pull request in this directory. FEMS does not host mod files, and there is no live in-app catalog yet. A listing is just a way to help people find the author's project and download page.
 
-## Add or update a mod
+## Add or update a listing
 
-1. Create a stable, lowercase directory under `mods/` using a unique mod ID, for example `mods/example-mod/`.
-2. Add `mod.json` and `README.md` using the fields below. Include screenshots or an icon only when you have permission to share them.
-3. Keep the mod's own source in its author-controlled repository. Provide a repository URL and a stable download/release URL if one exists; do not commit game files, extracted False Echo content, or third-party assets without redistribution permission.
-4. Open a pull request against `main`. For an update, edit the existing directory and keep the mod ID stable. To remove an entry, delete its directory in a pull request and explain the request.
-5. Maintainers review metadata, links, compatibility, licensing, and contribution rights. They may request changes before merging.
+1. Make a folder named after your mod's unique ID, such as `mods/example-mod/`.
+2. Add a `mod.json` file and a `README.md`.
+3. Keep the mod itself in a repository or download location you control. Don't add game files or anything you don't have permission to share.
+4. Open a pull request. To update a mod, change its existing folder. To remove it, delete that folder and explain why.
+5. Maintainers will review the listing and may ask you to make changes before it is merged.
 
-## Required `mod.json` fields
+## `mod.json`
+
+Use this as a starting point and replace the example values:
 
 ```json
 {
   "id": "example-mod",
   "name": "Example Mod",
-  "description": "A concise description of the mod.",
+  "description": "A short description of the mod.",
   "author": "Mod Author",
   "repository": "https://github.com/example/example-mod",
   "download": "https://github.com/example/example-mod/releases",
   "version": "1.0.0",
   "license": "MIT",
-  "gameVersions": ["False Echo Demo version"],
+  "gameVersions": ["False Echo version"],
   "femsVersions": ["Not yet available"],
   "categories": ["gameplay"],
   "tags": [],
@@ -32,19 +34,16 @@ Community mods are added and updated through pull requests to this directory. Th
 }
 ```
 
-Replace example values with accurate information. Use `null` or an empty list when an optional URL, icon, tag, screenshot, or dependency is not available. Do not claim compatibility that has not been tested. The fields above are the initial catalog convention, not a promise that an application currently parses this file.
+Use `null` or an empty list for optional information you don't have. Be specific about versions you've tested; say when something is untested. Keep the ID stable when updating a listing.
 
-## `README.md`
+In the mod's `README.md`, explain what it changes, how to get it, known issues, compatibility, dependencies, and its license. Link to your source and download pages.
 
-Describe what the mod changes, installation requirements or steps if known, supported game/FEMS versions, known issues, dependencies, and where users can get help. Link to the author's repository and download page. Clearly state the mod's license and any separate licenses required by assets or dependencies.
+## Before opening a pull request
 
-## Review checklist
+- Check that the folder name and `id` match and aren't already in use.
+- Make sure `mod.json` is valid JSON and the links work.
+- Include accurate compatibility and dependency details.
+- State the mod's license and check that you have permission to share any screenshots, icons, or other material.
+- Don't include game files, extracted game content, secrets, or other people's work without permission.
 
-- The directory name and `id` match and are unique.
-- JSON is valid and required metadata is present.
-- Links point to the author's project or stable download page.
-- Compatibility and dependencies are stated accurately.
-- Licensing and redistribution rights are clear.
-- No False Echo game files, extracted assets, secrets, or unauthorized third-party content are included.
-
-Authors retain ownership and choose the license for their mods. FEMS's MIT license does not apply to mod folders or third-party material. Catalog review does not guarantee safety, compatibility, endorsement, or hosting by FEMS. Report broken or potentially malicious listings using the [mod catalog issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml); do not install a mod you suspect is malicious.
+You keep ownership of your mod and choose its license. The FEMS MIT license does not apply to mod listings or third-party material. A listing is not a safety check or endorsement by FEMS. Use the [mod catalog issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml) to report a broken or potentially malicious listing. Don't install a mod you suspect is malicious.

@@ -1,7 +1,7 @@
 # Third-party notices
 
-The FEMS application source and binaries are not currently published in this repository, so there are no application dependencies or bundled third-party binaries to inventory here.
+The FEMS application and its dependencies are not included in this repository yet, so there are no application components to list here.
 
-The intended Windows application will not require users to install Python or dependencies manually. Required components are intended to be bundled with the executable or obtained automatically. When those components are selected, the project will document their versions, upstream sources, licenses, and required notices here and distribute the notices with the application.
+The plan is to distribute FEMS as Windows executables, with dependencies bundled or downloaded automatically. When those dependencies are chosen, their versions, sources, licenses, and required notices will be listed here and included with the application.
 
-False Echo and its game content are not FEMS dependencies that may be redistributed. Game files and extracted content remain subject to their owners' rights and applicable terms. Community mods and their assets retain their own licenses.
+False Echo and its game content belong to their respective owners and are not included with FEMS. Community mods and their assets keep their own licenses.

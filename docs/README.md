@@ -1,43 +1,31 @@
 # FEMS documentation
 
-FEMS is planned as a Windows-only executable application for creating and managing False Echo mods. The application is not available yet; these pages describe the project direction and contribution paths, not existing application behavior.
+FEMS is planned as a Windows application for making and managing False Echo mods. It is not available to download yet, so the guides for using the app will come later.
 
-## Installation and getting started
+## Installation
 
-There is no FEMS executable or installer to download yet. The intended Windows application will be built from Python code into executable files; users will not need to install Python. FEMS will download or bundle required dependencies automatically, without manual setup. Check [GitHub Releases](https://github.com/theveryheavy/FEMS/releases) for a future intentional release.
+There is no installer or `.exe` yet. The plan is to distribute Windows executables that don't require users to install Python or configure dependencies. FEMS will bundle or download what it needs.
 
-## User guide
+## User and modding guides
 
-**Planned:** Document installation, first launch, mod management, discovery, and troubleshooting against the actual Windows application once it is available.
+Guides for installing FEMS, using its features, making mods, and troubleshooting will be added when those features are ready. The current repository does not include application source or a modding SDK.
 
-## Modding guide
+## Submitting a mod
 
-**Planned:** Document supported game content, editing workflows, compatibility, backups, and safe use after these capabilities are implemented and verified.
+Add a mod by opening a pull request in [`mods/`](../mods/README.md). The guide explains the directory layout and metadata to include. FEMS does not host mod downloads, and there is no in-app catalog yet.
 
-## Mod developer guide
-
-**Planned:** Document supported mod formats, metadata, testing, versioning, dependencies, and licensing once the application format is established. Until then, follow the repository's [mod contribution guide](../mods/README.md) to submit a catalog entry by pull request.
-
-## Mod submissions and discovery
-
-Mods are submitted directly as pull requests that add or update entries in the [`mods/`](../mods/README.md) directory. The repository does not currently host downloads or provide an application catalog. Read the [mod catalog guide](../mods/README.md) for the directory structure, required metadata, and review process.
-
-Use the [mod catalog issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml) for questions or to report a broken or potentially malicious listing; it is not a mod submission channel.
+Use the [mod catalog issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml) to ask a question or report a broken or potentially malicious listing. Do not use it to submit a mod.
 
 ## FAQ
 
-**Is FEMS available to install?** Not yet. No application build or release has been published.
+**Can I download FEMS now?** Not yet. No application or release is available.
 
-**Will I need Python or install dependencies?** No. The intended Windows user build will be executable files, with required dependencies downloaded or bundled automatically. The application is not available yet.
+**Will I need Python?** No. The plan is to distribute Windows `.exe` files and handle dependencies automatically.
 
-**How do I submit a mod?** Open a pull request adding or updating the mod's directory under `mods/`. Follow [mods/README.md](../mods/README.md).
+**How do I submit a mod?** Open a pull request adding or updating its directory under [`mods/`](../mods/README.md).
 
-**Does MIT apply to every mod?** No. MIT applies to the FEMS project. Mod authors choose their own licenses, and third-party material retains its original terms.
+**Does MIT apply to every mod?** No. MIT applies to the FEMS project. Mod authors choose their own licenses.
 
-## Development and contribution instructions
+## Website
 
-The FEMS application source is not currently included in this repository. For repository contributions and mod pull requests, see [CONTRIBUTING.md](../CONTRIBUTING.md) and the [mod guide](../mods/README.md).
-
-## Future documentation website
-
-No website or deployment workflow is configured. If a standalone site is needed, [MkDocs with Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is a lightweight Markdown-based option that can be hosted on GitHub Pages after maintainers intentionally configure it. Future FEMS documentation should use dark backgrounds, minimal typography, industrial and retro-terminal influences, and restrained colors inspired by False Echo. Do not imply official affiliation or use game assets without permission.
+There is no documentation website yet. If one is needed, [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) is a lightweight option that can be hosted on GitHub Pages. Any future site should use FEMS's dark, minimal, industrial and retro-terminal style without implying that FEMS is an official False Echo product or using game assets without permission.
