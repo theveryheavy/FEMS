@@ -1,89 +1,87 @@
 # FEMS documentation
 
-FEMS is an early-stage project. This index describes the guides the project needs and distinguishes current repository guidance from application documentation that cannot be accurate until an application is released.
+FEMS includes a Windows-oriented developer toolkit. It can inspect, extract, package, and apply modifications for the exact game build recorded in [`modkit/fems_supported_build.json`](../modkit/fems_supported_build.json). The game, extracted data, and generated project profiles are not part of this repository.
 
-## Installation
+## Installation and getting started
 
-**Not available yet:** There is no published FEMS application or supported installation method. Check [GitHub Releases](https://github.com/theveryheavy/FEMS/releases) for future packages. A source checkout is not currently an installable product.
+Install Python 3.10 or later on Windows, install the Python dependency, and point the CLI to a locally installed, supported game:
 
-## Getting started
+```powershell
+py -3.10 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python modkit\fedk.py --game "C:\path\to\False Echo Demo" info
+python modkit\fedk.py --game "C:\path\to\False Echo Demo" extract
+```
 
-**Not available yet:** There is no released app to configure or run. When one is available, this guide should cover prerequisites, installation, first launch, and how to verify the installation.
+The first asset extraction downloads the UndertaleModTool CLI to the ignored `modkit/tools/utmt/` directory. FEMS creates an editable profile under `modkit/project/`; it is local working data and should not be committed. See the [modding guide](../modkit/docs/MODDING_GUIDE.md).
 
 ## User guide
 
-**Planned:** Document the implemented workflows for managing, discovering, and accessing mods. Do not rely on these features until they are released and documented against the actual application.
+The current source provides the `fedk` CLI and, on Windows, a companion F8 overlay for selecting packages. The overlay is launched with `modkit/fems_play.cmd`; it is not a native in-game menu. To see the available CLI commands, run `python modkit\fedk.py --help`. The repository does not include a standalone application build.
 
 ## Modding guide
 
-**Planned:** Document the supported game mod format, tools, packaging rules, compatibility expectations, and safe installation practices after those are established by the application.
+See [Modding guide](../modkit/docs/MODDING_GUIDE.md), [Content format](../modkit/docs/CONTENT_FORMAT.md), and [Architecture](../modkit/docs/ARCHITECTURE.md). The supported capabilities and known limitations are recorded in those guides. In particular, arbitrary game logic changes, audio, fonts, rooms, and objects are not supported by the current automated packer.
 
 ## Mod developer guide
 
-**Planned:** Explain how to create, test, version, package, license, and publish an independent mod. No FEMS-specific mod SDK or package format is defined yet.
+Create a workspace with `python modkit\fedk.py --game "<game folder>" mod create --name my-mod`, edit only the files needed in the generated project, and build with `python modkit\fedk.py --game "<game folder>" mod build --name my-mod`. Read the [portable mod package guide](../modkit/docs/MOD_PACKAGES.md) for the `.femod` format, supported paths, integrity checks, application, and compatibility limits. Mods are independently authored and may use their own licenses.
 
 ## Mod submission and catalog
 
-The catalog is planned as a static, community-maintained registry. There is no operational catalog yet, and an issue submission does not make a mod discoverable automatically.
+FEMS does not yet contain a hosted catalog, registry, or API. The initial proposed discovery system is a static, community-maintained registry reviewed through GitHub.
 
 ### Submit a new mod
 
-1. Create, test, and publish your mod in a repository or other stable location that you control.
-2. Prepare the metadata below and decide which license applies to the mod and its assets.
-3. Open a [Mod Submission issue](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml), choose a new submission, and provide the metadata, compatibility details, and screenshots or icon where available.
-4. Maintainers validate that the links and metadata are usable, review compatibility and licensing information, and may ask you to clarify or change the submission.
-5. Approved entries can be added to the official static FEMS mod catalog when it is implemented. Until then, approval does not mean users can discover or install the mod through FEMS.
-6. FEMS users will be able to discover and access approved entries through the catalog once that feature is released. The developer's published project remains the source of the mod.
+1. Create, test, and publish the mod at a stable repository or project page you control.
+2. Prepare the metadata below and identify the licenses for the mod and its assets.
+3. Open a [Mod Submission issue](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml) and provide the metadata, compatibility information, and screenshots or icon where available.
+4. Maintainers validate links and metadata, review the submission, and may request clarification. An issue is a request for review, not an automatic catalog listing.
+5. Approved entries may be added to a static catalog once it exists. Until then, approval does not make the mod discoverable or installable through FEMS.
+6. Users will be able to discover and access approved entries through FEMS only after a catalog feature is implemented. Mod authors remain responsible for their own releases and downloads.
 
-### Expected mod metadata
-
-Each catalog entry is expected to contain:
+### Expected metadata
 
 | Field | Expected value |
 |---|---|
-| Unique mod ID | Stable, unique identifier, preferably lowercase with hyphens (for example, `example-mod`). |
-| Name and description | Display name and concise explanation of what the mod changes. |
+| Unique mod ID | Stable identifier, preferably lowercase with hyphens, such as `example-mod`. |
+| Name and description | Display name and concise explanation of the mod. |
 | Author | Individual or organization responsible for the mod. |
 | Repository URL | Public source or project page controlled by the developer. |
-| Download URL | Direct or release-page link, if downloads are published separately. |
-| Version | Current mod version, preferably SemVer if appropriate. |
-| License | SPDX identifier or clear license name and a link to its text. |
-| Supported game versions | Explicit False Echo versions, or a clear statement if not yet verified. |
-| Supported FEMS versions | Explicit FEMS versions, or a clear statement that compatibility is not yet verified. |
+| Download URL | Direct or release-page link, if applicable. |
+| Version | Current mod version; SemVer is recommended where appropriate. |
+| License | SPDX identifier or license name and a link to its text. |
+| Supported game versions | Explicit False Echo versions, or say if not verified. |
+| Supported FEMS versions | Explicit FEMS versions, or say if not verified. |
 | Categories and tags | Short, useful discovery labels. |
-| Dependencies | Required or optional mods/tools and their versions, or `None`. |
-| Screenshots and icon | Links to representative screenshots and an icon, if available, with usage rights confirmed. |
+| Dependencies | Required or optional mods/tools and versions, or `None`. |
+| Screenshots and icon | Links to representative media, if available and authorized for submission. |
 
-This is a documentation contract, not an implemented schema or API. Maintainers may refine it when the static catalog is introduced.
+This is a documentation contract, not an implemented schema or API.
 
-### Update or remove a mod
+### Update, remove, or report a mod
 
-Use the same [Mod Submission issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml), select **Update an existing mod** or **Remove a mod**, and include its stable mod ID and catalog link if available. For an update, provide changed metadata and compatibility information. For removal, explain the request and whether the mod is withdrawn, moved, or no longer maintained. The catalog is not operational yet, so current removal requests can only be recorded for maintainers.
+Use the same [Mod Submission issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml) and identify the stable mod ID. For an update, include changed metadata and compatibility information. For removal, say whether the mod is withdrawn, moved, or no longer maintained. To report a broken or potentially malicious mod, do not install or run it; include its ID, link, and observed issue without sharing private data or harmful files. For vulnerabilities in FEMS itself, use the private reporting route in [SECURITY.md](../SECURITY.md).
 
-### Report a broken or malicious mod
-
-Do not install or run a mod you believe is malicious. Report its mod ID, repository/download URL, observed behavior, and relevant version to the maintainers through a GitHub issue without publishing exploit details, private data, or harmful files. For vulnerabilities in FEMS itself, follow [SECURITY.md](../SECURITY.md) and report privately. Maintainers may temporarily remove or flag catalog entries while investigating once a catalog exists.
-
-### Licensing and compatibility
-
-Each mod author chooses and states the mod's license. A mod may use a license different from FEMS's MIT license. Third-party dependencies and assets keep their own licenses and attribution terms. Catalog inclusion does not transfer copyright, authorize redistribution, or imply endorsement. Authors are responsible for having permission to submit metadata and media, and should state supported game/FEMS versions and known limitations accurately.
+Mod authors choose their own licenses. FEMS's MIT license does not apply to independent mods or third-party assets, and catalog inclusion does not transfer copyright, authorize redistribution, or imply endorsement. Submit only metadata and media you have the right to share.
 
 ## FAQ
 
-**Can I install FEMS now?** No. There is no published application release yet.
+**Is FEMS an official False Echo product?** No. It is an unofficial community project.
 
-**Can I submit a mod?** Yes, through the GitHub issue form. The request can be reviewed and recorded, but the catalog is not available and approval does not yet make it discoverable in an app.
+**Does this repository include the game or extracted assets?** No. It includes the toolkit source and technical guides only. A compatible game installation is required for operations on game files.
 
-**Does MIT apply to every mod?** No. MIT applies to the main FEMS project source code only. Mods and third-party material retain their own licenses.
+**Can I use a different game build?** The installer checks the exact fingerprints in the supported build manifest and rejects unrecognized builds. Do not bypass these checks; update support requires a reviewed profile for the new build.
 
-**Where can I ask a question?** Use [GitHub Discussions](https://github.com/theveryheavy/FEMS/discussions) when enabled; see [SUPPORT.md](../SUPPORT.md) for the current route.
+**Can I install mods from an FEMS catalog?** Not yet. The catalog is planned, not implemented.
+
+**Does MIT apply to every mod or dependency?** No. FEMS source uses MIT; mods, dependencies, and third-party assets retain their own licenses.
 
 ## Development and contribution instructions
 
-See [CONTRIBUTING.md](../CONTRIBUTING.md) for the contribution process and licensing expectations. The repository does not yet contain application code, dependency setup, build commands, or automated tests. Future development documentation should record those commands alongside the implementation rather than inventing them in advance.
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for setup, checks, and contribution guidance. The repository CI checks Python syntax and command-line help without needing game files or downloads.
 
-## Documentation site
+## Documentation website
 
-No website or deployment workflow is configured. When the documentation grows, [MkDocs with Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is a lightweight static-site option. It can build from Markdown and be hosted on GitHub Pages; configure Pages and a deployment workflow only when there is a maintained docs site to publish.
-
-Future FEMS web documentation should use dark backgrounds, minimal typography, industrial and retro-terminal influences, and restrained colors inspired by False Echo. Avoid implying official affiliation or using game assets without permission.
+There is no website or deployment workflow. If a standalone site is needed later, [MkDocs with Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) is a lightweight Markdown-based option that can be hosted on GitHub Pages after maintainers intentionally configure it. Future FEMS web documentation should use dark backgrounds, minimal typography, industrial and retro-terminal influences, and restrained colors inspired by False Echo. Do not imply official affiliation or use game assets without permission.

@@ -1,59 +1,69 @@
-# FEMS — False Echo Modding Suite
+# FEMS - False Echo Modding Suite
 
+[![CI](https://github.com/theveryheavy/FEMS/actions/workflows/ci.yml/badge.svg)](https://github.com/theveryheavy/FEMS/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Latest release](https://img.shields.io/github/v/release/theveryheavy/FEMS?display_name=tag)](https://github.com/theveryheavy/FEMS/releases)
 [![Contributors](https://img.shields.io/github/contributors/theveryheavy/FEMS)](https://github.com/theveryheavy/FEMS/graphs/contributors)
 
-FEMS is an open-source modding suite for **False Echo**, intended to help the community create, manage, discover, and share mods.
+FEMS is an open-source toolkit for creating, packaging, managing, and applying community modifications for False Echo. It currently provides a Windows-oriented developer CLI and a companion mod-selection overlay.
 
-> **Project status:** This repository is being prepared for its public project and community workflows. It does not yet contain a published, installable FEMS application or an operational mod catalog. The capabilities below are planned, not currently available.
+FEMS is an unofficial community project, not an official product of the game developer. This repository contains FEMS source and documentation, not the game itself.
 
-## Purpose and goals
+## What works today
 
-FEMS aims to make modding more approachable for players and developers, support independent mod authors, and provide a clear, community-reviewed path to discover and share mods. The project intends to keep its mod registry simple and community-maintained rather than introduce unnecessary hosting infrastructure.
+- Inspect a supported local game build and extract its editable content.
+- Edit and export/import localization tables, scaffold campaigns, and edit saves.
+- Create, inspect, build, and apply `.femod` packages.
+- Patch supported content and selected sprite, texture, and shader resources.
+- Install changes to a matching Steam game build with fingerprint checks and backups.
+- Queue content mods and launch the game with the F8 companion overlay.
 
-## Features
+The current build manifest supports only the exact False Echo Demo Steam build identified in [`modkit/fems_supported_build.json`](modkit/fems_supported_build.json). Asset editing requires the optional UndertaleModTool CLI, which FEMS downloads when needed. Font, audio, room, object, and general executable-logic editing are not implemented. See the [toolkit documentation](docs/README.md) for precise limitations.
 
-**Planned**
+## Installation and first run
 
-- Tools for creating and managing False Echo modifications.
-- A way for users to discover and access community mods.
-- A static, community-maintained catalog of approved mod metadata.
-- Mod developer guidance for compatibility, dependencies, licensing, and releases.
+The current source tools are for Windows and require Python 3.10 or later. A game installation is not included; use a copy installed through Steam. The installer refuses game files that do not match the supported-build fingerprints.
 
-**Implemented:** Repository documentation, contribution guidance, and GitHub issue templates for project feedback and mod catalog requests. No application or catalog functionality is published yet.
+```powershell
+py -3.10 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python modkit\fedk.py --game "C:\path\to\False Echo Demo" info
+python modkit\fedk.py --game "C:\path\to\False Echo Demo" extract
+```
 
-## Installation and getting started
+Extraction creates a local working profile under `modkit/project/`; that profile and extracted game resources are intentionally excluded from Git. UndertaleModTool is downloaded on first use and is also excluded.
 
-There is no FEMS application release to install yet. Check [Releases](https://github.com/theveryheavy/FEMS/releases) for future published builds; do not treat source checkout as an installable application. The [documentation index](docs/README.md) records current project status and planned user guides.
+To create and build a mod, follow the [mod package guide](modkit/docs/MOD_PACKAGES.md). Review the generated changes and keep backups before installing modifications. Use `install_fems.cmd` from the `modkit` directory for the supported Steam installation, and `fems_play.cmd` to launch it with the companion overlay.
+
+The default FEMS source entry point is `python modkit\fedk.py --help`. There is no published standalone installer or release package; no release has been created by this repository setup.
 
 ## Documentation
 
-- [Documentation index and guides](docs/README.md)
+- [Documentation index](docs/README.md)
+- [Modding guide](modkit/docs/MODDING_GUIDE.md)
+- [Portable mod package guide](modkit/docs/MOD_PACKAGES.md)
+- [Content format reference](modkit/docs/CONTENT_FORMAT.md)
+- [Technical architecture](modkit/docs/ARCHITECTURE.md)
 - [Contributing](CONTRIBUTING.md)
 - [Mod submission and catalog process](docs/README.md#mod-submission-and-catalog)
-- [Changelog and release process](CHANGELOG.md)
-- [Support](SUPPORT.md)
-- [Security policy](SECURITY.md)
-
-## Releases and versioning
-
-FEMS follows [Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`. Releases are published intentionally by maintainers; this repository has no release version or automated release process yet. See [CHANGELOG.md](CHANGELOG.md) for the release checklist and prerelease guidance.
+- [Support](SUPPORT.md) | [Security](SECURITY.md)
 
 ## Mod discovery and submissions
 
-Independent developers can request inclusion in the future FEMS catalog using the [Mod Submission issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml). Include the mod metadata, compatibility, license, dependencies, and media described in the [submission guide](docs/README.md#mod-submission-and-catalog). Submissions will be validated and reviewed before any approved entry is included in the catalog. A catalog is not available yet.
+FEMS does not yet include a hosted catalog or API. Mod authors can request review for a future static community catalog through the [Mod Submission issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml). Include the metadata, compatibility, license, dependencies, and media described in the [submission guide](docs/README.md#mod-submission-and-catalog). Submissions are reviewed; they are not automatically published or hosted.
 
-Mod creators retain control of their mods and may choose their own licenses. A catalog request does not transfer ownership or grant FEMS permission to relicense or redistribute a mod.
+Mod creators retain control of their mods and may choose their own licenses. Catalog submission does not transfer ownership or authorize FEMS to relicense or redistribute a mod.
 
 ## Contributing
 
-Contributions are welcome from first-time contributors and experienced developers. Start with [CONTRIBUTING.md](CONTRIBUTING.md), review our [Code of Conduct](CODE_OF_CONDUCT.md), and use the [issue tracker](https://github.com/theveryheavy/FEMS/issues) for bugs and proposals. General questions belong in [GitHub Discussions](https://github.com/theveryheavy/FEMS/discussions) once Discussions are enabled; until then, see [Support](SUPPORT.md).
+Contributions are welcome from first-time contributors and experienced developers. Start with [CONTRIBUTING.md](CONTRIBUTING.md), review the [Code of Conduct](CODE_OF_CONDUCT.md), and use the [issue tracker](https://github.com/theveryheavy/FEMS/issues) for bugs and proposals. General questions belong in [GitHub Discussions](https://github.com/theveryheavy/FEMS/discussions) once enabled; until then, see [Support](SUPPORT.md).
 
 ## License
 
-FEMS project source code is offered under the [MIT License](LICENSE). This license does not automatically apply to community mods, third-party dependencies, or third-party assets: each retains its own license and attribution requirements. Contributors must have the right to submit the content they contribute. See [CONTRIBUTING.md](CONTRIBUTING.md#licensing-and-contributions).
+FEMS source code is licensed under the [MIT License](LICENSE). This does not automatically apply to community mods, third-party dependencies, or third-party assets: each retains its own license and attribution requirements. Contributors must have the right to submit content. See [CONTRIBUTING.md](CONTRIBUTING.md#licensing-and-contributions) and [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-## Credits and acknowledgements
+No False Echo executable, game data, extracted game content, bundled game assets, or third-party tool binaries are included. Users are responsible for having a lawful game copy and for respecting the game's and third-party material's applicable terms.
 
-FEMS is a community project for the False Echo modding community. Thanks to all contributors and independent mod authors who help build and share the ecosystem. False Echo and related names and assets remain the property of their respective owners; this project is not presented as an official game product.
+## Credits
+
+FEMS is a community project for False Echo players and mod authors. It uses [Pillow](https://github.com/python-pillow/Pillow) for image handling and [UndertaleModTool](https://github.com/UnderminersTeam/UndertaleModTool) for supported GameMaker asset operations; see [third-party notices](THIRD-PARTY-NOTICES.md). False Echo and related names and assets remain the property of their respective owners.

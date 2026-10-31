@@ -8,7 +8,8 @@ The format is inspired by [Keep a Changelog](https://keepachangelog.com/en/1.1.0
 
 ### Added
 
-- Initial repository documentation, community guidance, and GitHub issue templates.
+- FEMS CLI, Python library, Windows overlay and installer source.
+- Modding guides and supported-build metadata; generated game profiles, game files, and release binaries remain excluded.
 
 ## Release process
 
@@ -21,4 +22,4 @@ Maintainers manage releases intentionally; changes to this file do not publish a
 5. Development builds may be distributed from explicitly identified commits or prerelease artifacts after build and distribution workflows exist. Clearly label them as development builds; do not create misleading stable version numbers.
 6. Verify the release assets and notes before publishing. Do not publish or automate releases without maintainer review.
 
-There is no release version, build pipeline, or automated publishing workflow configured yet.
+This setup does not publish a GitHub Release, create a tag, or distribute a binary. The toolkit's internal source version is not a claim that a public release was published.
