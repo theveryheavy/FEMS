@@ -8,6 +8,7 @@
 - [ ] I updated relevant documentation.
 - [ ] I have the right to submit all code, text, and assets in this pull request.
 - [ ] I reviewed the Code of Conduct and contribution guidance.
+- [ ] If this changes a mod listing, it is under `mods/<unique-mod-id>/` and follows `mods/README.md`.
 
 ## Related issue
 

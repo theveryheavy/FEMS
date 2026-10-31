@@ -1,5 +1,5 @@
-name: Mod submission or catalog update
-description: Request review of a new mod or a change to a catalog entry.
+name: Mod catalog question or report
+description: Ask about the mod PR process or report a broken or potentially malicious listing.
 title: "[Mod catalog]: "
 labels:
   - mod-submission
@@ -7,117 +7,36 @@ body:
   - type: markdown
     attributes:
       value: |
-        The FEMS mod catalog is planned and is not operational yet. Submitting this form requests review; it does not publish, host, or guarantee discovery of a mod.
+        Mod additions and updates must be submitted as pull requests under `mods/<unique-mod-id>/`. This issue form is for questions or reporting a problem with an existing listing; it does not submit or publish a mod.
   - type: dropdown
     id: request-type
     attributes:
-      label: Request type
+      label: What do you need?
       options:
-        - Submit a new mod
-        - Update an existing mod
-        - Remove a mod
+        - Question about submitting a mod pull request
+        - Report a broken mod listing
+        - Report a potentially malicious mod
+        - Request removal of an existing listing
     validations:
       required: true
   - type: input
     id: mod-id
     attributes:
-      label: Unique mod ID
-      description: Required for updates/removals; propose a stable lowercase ID for a new mod.
-      placeholder: example-mod
+      label: Mod ID or directory
+      description: Link the existing listing if applicable.
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Describe the question or report. Do not include private data or harmful files.
     validations:
       required: true
-  - type: input
-    id: mod-name
-    attributes:
-      label: Mod name
-    validations:
-      required: false
-  - type: textarea
-    id: description
-    attributes:
-      label: Description
-      description: What does the mod do? For updates/removals, explain the requested change if relevant.
-    validations:
-      required: true
-  - type: input
-    id: author
-    attributes:
-      label: Author
-    validations:
-      required: false
-  - type: input
-    id: repository-url
-    attributes:
-      label: Repository or project URL
-      description: Link to the mod's source or official project page.
-    validations:
-      required: false
-  - type: input
-    id: download-url
-    attributes:
-      label: Download URL (if applicable)
-      description: Link to a release or download page; leave blank if not applicable.
-    validations:
-      required: false
-  - type: input
-    id: version
-    attributes:
-      label: Mod version
-      description: Current version, if applicable.
-    validations:
-      required: false
-  - type: input
-    id: license
-    attributes:
-      label: License
-      description: State the mod and relevant asset licenses, with links where possible.
-    validations:
-      required: false
-  - type: input
-    id: game-versions
-    attributes:
-      label: Supported game versions
-    validations:
-      required: false
-  - type: input
-    id: fems-versions
-    attributes:
-      label: Supported FEMS versions
-      description: State "Not tested" if compatibility is unknown.
-    validations:
-      required: false
-  - type: input
-    id: categories-tags
-    attributes:
-      label: Categories and tags
-      placeholder: e.g. gameplay, quality-of-life
-    validations:
-      required: false
-  - type: textarea
-    id: dependencies
-    attributes:
-      label: Dependencies
-      description: List required/optional dependencies and versions, or write "None".
-    validations:
-      required: false
-  - type: textarea
-    id: screenshots-icon
-    attributes:
-      label: Screenshots and icon
-      description: Add links or attach images if available, and confirm you have the right to submit them.
-    validations:
-      required: false
   - type: checkboxes
-    id: rights
+    id: safety
     attributes:
-      label: Submission rights
+      label: Safety
       options:
-        - label: I have the right to submit this metadata and any attached or linked material, and I have identified applicable licenses.
+        - label: I have not included secrets, private data, or files I do not have permission to share.
           required: true
-  - type: textarea
-    id: additional-context
-    attributes:
-      label: Additional context
-      description: Include an existing catalog link for updates/removals, or other information needed for review.
-    validations:
-      required: false

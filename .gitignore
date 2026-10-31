@@ -1,29 +1,17 @@
-# Python
+# Python build/cache output
 __pycache__/
 *.py[cod]
 .venv/
 venv/
 
-# Local game files and generated project data
+# Game files and local data
 False Echo.exe
 data.win
 *.dat
 *.yytex
-modkit/project/
-modkit/dump/
-modkit/build/
-modkit/backup/
-modkit/backups/
-modkit/fems_installed_build.json
 
-# Downloaded third-party tools and local release output
-modkit/tools/utmt/
-modkit/tools/utmt.zip
-modkit/tools/ghidra/
-modkit/release/
-*.femod
-*.exe
-*.dll
+# Local release output
+release/
 
 # Logs and temporary files
 *.log

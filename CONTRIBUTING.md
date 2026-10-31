@@ -1,29 +1,26 @@
 # Contributing to FEMS
 
-Thank you for considering a contribution. FEMS welcomes bug reports, thoughtful feature proposals, documentation improvements, code contributions, and mod catalog requests from people with all levels of experience.
+Thank you for considering a contribution. FEMS welcomes documentation improvements, thoughtful proposals, and community mod submissions from people with all levels of experience. The application source code is not currently included in this repository.
 
 ## Before you start
 
 - Read and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 - Search [existing issues](https://github.com/theveryheavy/FEMS/issues) before opening a duplicate.
 - For broad proposals, open an issue first so the community can discuss the direction before implementation.
-- Keep contributions focused and follow the existing Python and Markdown conventions.
-- Do not add game executables, `data.win`, extracted game content/assets, local save files, user-specific install state, generated mod packages, or downloaded third-party binaries. The `.gitignore` covers common generated paths; check staged files before submitting.
+- Keep contributions focused and follow the existing Markdown conventions.
+- Do not add False Echo executables, game data, extracted game content/assets, local save files, user-specific install state, or unrelated binaries.
 
-## Development setup
+## Submit or update a mod
 
-The toolkit targets Windows and Python 3.10 or later. From the repository root, install the image dependency and run the CLI smoke checks:
+Mods are published in this repository through pull requests, not by opening a mod submission issue:
 
-```powershell
-py -3.10 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python -m compileall -q modkit
-python modkit\fedk.py --help
-python modkit\fems_public.py help
-```
+1. Create a directory under `mods/` named with the mod's stable, unique ID.
+2. Add the required `mod.json` metadata and a `README.md`; include only content you have the right to contribute.
+3. Open a pull request against `main`. For updates, edit the existing mod directory rather than creating a duplicate.
+4. Describe compatibility, license, dependencies, source/download links, and any relevant changes in the pull request.
+5. Address maintainer review. A merged entry is a catalog listing; it does not mean FEMS hosts, verifies, or redistributes the mod.
 
-These checks do not require a game installation. Game-dependent operations also require a locally installed game build that matches `modkit/fems_supported_build.json`; extraction may download UndertaleModTool into an ignored directory. Do not claim game integration was tested unless it was tested against that supported build.
+See [mods/README.md](mods/README.md) for exact metadata and review expectations. Use the mod issue form only for questions, broken listings, or safety reports.
 
 ## Report bugs and propose features
 
@@ -33,18 +30,14 @@ Use the [Bug Report](https://github.com/theveryheavy/FEMS/issues/new?template=bu
 
 1. Fork the repository and create a branch for your change.
 2. Make a focused change and update relevant documentation.
-3. Run the checks above and any relevant game-dependent checks. If a check cannot be run, say so in the pull request rather than claiming it passed.
+3. Run relevant checks. If a check cannot be run, say so in the pull request rather than claiming it passed.
 4. Open a pull request against `main` and complete the pull request template.
 5. Respond to review feedback and keep the change easy to review.
 
 Maintainers may request changes, additional tests, or revisions to keep the project maintainable. A pull request is not accepted until reviewed and merged by a maintainer.
 
-## Mod catalog contributions
-
-Submit new mods and requests to update or remove an entry using the [Mod Submission issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml). Follow the [mod submission guide](docs/README.md#mod-submission-and-catalog). A submission requests review; it does not guarantee inclusion, transfer ownership, or authorize FEMS to host or relicense the mod.
-
 ## Licensing and contributions
 
-The main FEMS project source code is licensed under MIT. By submitting a contribution, you confirm that you have the right to contribute it and that you are not knowingly submitting content that violates another person's rights. Your contribution to FEMS is offered under the project's MIT License unless you clearly identify material with a different license and the maintainers approve its inclusion.
+The FEMS project is licensed under MIT. By submitting a project contribution, you confirm that you have the right to contribute it and that you are not knowingly submitting content that violates another person's rights.
 
-This project license does not apply automatically to independently licensed mods, third-party code, artwork, screenshots, icons, or other assets. Identify their owners and licenses, preserve required notices, and obtain permission where needed. Do not submit another person's work as your own.
+Mods submitted under `mods/` keep their own licenses; do not apply the FEMS MIT license to them. Third-party dependencies and assets also retain their own licenses and attribution terms. Identify owners and licenses, preserve required notices, and obtain permission where needed. Do not submit another person's work as your own.

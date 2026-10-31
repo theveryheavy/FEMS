@@ -1,21 +1,7 @@
 # Third-party notices
 
-FEMS does not vendor third-party tool binaries or game assets. The following dependencies are used or downloaded by the source toolkit; their upstream terms apply independently of the FEMS MIT license.
+The FEMS application source and binaries are not currently published in this repository, so there are no application dependencies or bundled third-party binaries to inventory here.
 
-## Pillow
+The intended Windows application will not require users to install Python or dependencies manually. Required components are intended to be bundled with the executable or obtained automatically. When those components are selected, the project will document their versions, upstream sources, licenses, and required notices here and distribute the notices with the application.
 
-Used for image handling in the overlay and supported sprite/texture workflows. Install it with `python -m pip install -r requirements.txt`.
-
-- Project: https://github.com/python-pillow/Pillow
-- License and notices: https://github.com/python-pillow/Pillow/blob/main/LICENSE
-
-## UndertaleModTool CLI
-
-The asset extraction/patching helper downloads UndertaleModTool CLI version `0.9.2.0` from its upstream release when first needed. The executable is stored under the ignored `modkit/tools/utmt/` directory and is not included in this repository.
-
-- Project and release: https://github.com/UnderminersTeam/UndertaleModTool
-- License and notices: https://github.com/UnderminersTeam/UndertaleModTool/blob/master/LICENSE
-
-## Game and community content
-
-False Echo is not part of this repository. The game executable, data files, extracted content, sounds, images, and other game assets retain their owners' rights and applicable terms. FEMS's MIT license does not grant rights to redistribute them. Community mods and mod-provided assets retain their own licenses; authors must have permission to submit metadata and media.
+False Echo and its game content are not FEMS dependencies that may be redistributed. Game files and extracted content remain subject to their owners' rights and applicable terms. Community mods and their assets retain their own licenses.

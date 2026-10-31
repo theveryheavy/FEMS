@@ -1,10 +1,10 @@
 # Support
 
-FEMS provides a Windows-oriented Python source toolkit. This repository does not include an installer, standalone build, game files, or a mod catalog.
+FEMS is planned as a Windows-only executable application, but no installer, executable, or release is available yet. Community mod listings are submitted through pull requests to `mods/`.
 
 - **Bug reports:** Use the [Bug Report form](https://github.com/theveryheavy/FEMS/issues/new?template=bug-report.yml) for reproducible problems. Include the toolkit commit/version and supported game build when relevant.
 - **Feature ideas:** Use the [Feature Request form](https://github.com/theveryheavy/FEMS/issues/new?template=feature-request.yml).
-- **Mod catalog requests:** Use the [Mod Submission form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml).
+- **Mod submissions and updates:** Open a pull request following [mods/README.md](mods/README.md). The [mod catalog issue form](https://github.com/theveryheavy/FEMS/issues/new?template=mod-submission.yml) is for questions, broken entries, or safety reports, not submissions.
 - **General questions:** Use [GitHub Discussions](https://github.com/theveryheavy/FEMS/discussions) when repository Discussions are enabled. Discussions are currently disabled; until then, use an existing relevant issue or open a concise issue explaining the question.
 - **Security issues:** Follow [SECURITY.md](SECURITY.md); do not post vulnerability details publicly.
 - **Conduct concerns:** Contact the repository owner privately through GitHub. Do not use a public issue for sensitive reports.
